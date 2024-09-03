@@ -1,6 +1,6 @@
 import pytest
 
-from locators_book_room.page_locators import PageLocatorsBookRoom
+from pages.page_locators import PageLocatorsBookRoom
 from url import Urls
 
 
@@ -14,4 +14,9 @@ def browser_context(page):
 
 @pytest.fixture
 def catalog_page(page):
+    return PageLocatorsBookRoom(page)
+
+
+@pytest.fixture
+def main_page(page):
     return PageLocatorsBookRoom(page)

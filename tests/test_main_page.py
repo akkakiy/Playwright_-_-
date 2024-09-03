@@ -3,53 +3,46 @@ import allure
 from playwright.sync_api import expect
 
 
-@allure.suite('Каталог')
-class TestSearchCatalog:
+@allure.suite('Проверка главной страницы')
+class TestMainPage:
 
-    @allure.title('Поиск книги в каталоге по названию')
-    def test_search_book(self, browser_context, catalog_page):
-        catalog_page.find_and_click_catalog()
-        catalog_page.find_and_fill_placeholder()
-        catalog_page.find_and_click_search_btn()
-        catalog_page.find_and_click_book()
-        book = catalog_page.find_img_book()
-        expect(book).to_be_visible()
+    @allure.title('Проверка кнопки "Каталог" на главной странице')
+    def test_search_btn(self, browser_context, main_page):
+        main_page.find_and_click_catalog()
+        catalog = main_page.find_text_catalog()
+        placeholder = main_page.find_placeholder()
+        expect(catalog).to_be_visible() and expect(placeholder).to_be_visible()
 
-    @allure.title('Поиск книги в каталоге по имени и фамилии автора')
-    def test_search_author_full_name(self, browser_context, catalog_page):
-        catalog_page.find_and_click_catalog()
-        catalog_page.find_and_fill_placeholder_name_and_lastname_author()
-        catalog_page.find_and_click_search_btn()
-        book = catalog_page.find_name_book()
-        price = catalog_page.find_price_book()
-        expect(book).to_be_visible() and expect(price).to_be_visible()
+    @allure.title('Проверка кнопки "Авторы" на главной странице')
+    def test_author_btn(self, browser_context, main_page):
+        main_page.find_btn_author()
+        author = main_page.find_text_author()
+        authors_list = main_page.find_list_author()
+        expect(author).to_be_visible() and expect(authors_list).to_be_visible()
 
-    @allure.title('Поиск книги в каталоге по имени автора')
-    def test_search_author_name(self, browser_context, catalog_page):
-        catalog_page.find_and_click_catalog()
-        catalog_page.find_and_fill_placeholder_name_author()
-        catalog_page.find_and_click_search_btn()
-        book = catalog_page.find_name_book()
-        price = catalog_page.find_price_book()
-        expect(book).to_be_visible() and expect(price).to_be_visible()
+    # def test_book_room_link(self, browser_context, main_page):
+    #     main_page.find_and_click_book_room_link()
 
-    @allure.title('Поиск книги в каталоге по фамилии автора')
-    def test_search_author_lastname(self, browser_context, catalog_page):
-        catalog_page.find_and_click_catalog()
-        catalog_page.find_and_fill_placeholder_lastname_author()
-        catalog_page.find_and_click_search_btn()
-        book = catalog_page.find_name_book()
-        price = catalog_page.find_price_book()
-        expect(book).to_be_visible() and expect(price).to_be_visible()
+    @allure.title('Проверка кнопки "Партнерам по доставке" в футере')
+    def test_delivery_link(self, browser_context, main_page):
+        main_page.find_and_click_text_delivery()
+        delivery = main_page.find_text_delivery()
+        expect(delivery).to_be_visible()
 
-    @allure.title('Добавление книги в корзину')
-    def test_add_book_to_basket(self, catalog_page, browser_context):
-        catalog_page.find_and_click_catalog()
-        catalog_page.find_and_fill_placeholder_name_and_lastname_author()
-        catalog_page.find_and_click_search_btn()
-        catalog_page.find_name_book().click()
-        catalog_page.find_and_click_add_to_basket()
-        catalog_page.find_and_click_basket_btn()
-        order = catalog_page.find_text_order()
-        book = catalog_page.find_name_book()
-        expect(order).to_be_visible() and expect(book).to_be_visible()
+    @allure.title('Проверка кнопки "Партнерам-селерам" в футере')
+    def test_selers_link(self, browser_context, main_page):
+        main_page.find_and_click_text_selers()
+        selers = main_page.find_text_selers()
+        expect(selers).to_be_visible()
+
+    @allure.title('Проверка кнопки "Помощь" в футере')
+    def test_help_link(self, browser_context, main_page):
+        main_page.find_and_click_text_help()
+        help_link = main_page.find_text_help()
+        expect(help_link).to_be_visible()
+
+    @allure.title('Проверка ссылки "FAQs" в футере')
+    def test_faq_link(self, browser_context, main_page):
+        main_page.find_and_click_text_faq()
+        faq = main_page.find_text_faq()
+        expect(faq).to_be_visible()

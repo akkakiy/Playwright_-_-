@@ -22,5 +22,3 @@ class BasePage:
 
     def get_by_role(self, role):
         return self.page.get_by_role(role)
-
-

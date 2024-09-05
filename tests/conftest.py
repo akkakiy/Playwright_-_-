@@ -1,6 +1,7 @@
 import pytest
 
-from pages.page_locators import PageLocatorsBookRoom
+from pages.page_footer import PageFooter
+from pages.page_main_catalog import PageLocatorsBookRoom
 from url import Urls
 
 
@@ -20,3 +21,8 @@ def catalog_page(page):
 @pytest.fixture
 def main_page(page):
     return PageLocatorsBookRoom(page)
+
+
+@pytest.fixture
+def page_footer(page):
+    return PageFooter(page)

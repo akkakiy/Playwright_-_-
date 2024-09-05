@@ -20,29 +20,26 @@ class TestMainPage:
         authors_list = main_page.find_list_author()
         expect(author).to_be_visible() and expect(authors_list).to_be_visible()
 
-    # def test_book_room_link(self, browser_context, main_page):
-    #     main_page.find_and_click_book_room_link()
-
     @allure.title('Проверка кнопки "Партнерам по доставке" в футере')
-    def test_delivery_link(self, browser_context, main_page):
-        main_page.find_and_click_text_delivery()
-        delivery = main_page.find_text_delivery()
+    def test_delivery_link(self, browser_context, page_footer):
+        page_footer.find_and_click_text_delivery()
+        delivery = page_footer.find_text_delivery()
         expect(delivery).to_be_visible()
 
     @allure.title('Проверка кнопки "Партнерам-селерам" в футере')
-    def test_selers_link(self, browser_context, main_page):
-        main_page.find_and_click_text_selers()
-        selers = main_page.find_text_selers()
-        expect(selers).to_be_visible()
+    def test_salers_link(self, browser_context, page_footer):
+        page_footer.find_and_click_text_selers()
+        salers = page_footer.find_text_selers()
+        expect(salers).to_be_visible()
 
     @allure.title('Проверка кнопки "Помощь" в футере')
-    def test_help_link(self, browser_context, main_page):
-        main_page.find_and_click_text_help()
-        help_link = main_page.find_text_help()
+    def test_help_link(self, browser_context, page_footer):
+        page_footer.find_and_click_text_help()
+        help_link = page_footer.find_text_help()
         expect(help_link).to_be_visible()
 
     @allure.title('Проверка ссылки "FAQs" в футере')
-    def test_faq_link(self, browser_context, main_page):
-        main_page.find_and_click_text_faq()
-        faq = main_page.find_text_faq()
+    def test_faq_link(self, browser_context, page_footer):
+        page_footer.find_and_click_text_faq()
+        faq = page_footer.find_text_faq()
         expect(faq).to_be_visible()

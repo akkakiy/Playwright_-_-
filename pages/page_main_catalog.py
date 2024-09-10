@@ -84,3 +84,19 @@ class PageLocatorsBookRoom(BasePage):
     @allure.step('Поиск списка авторов')
     def find_list_author(self):
         return self.get_by_text(BookLocators.AUTHOR_LIST)
+
+    @allure.step('Поиск и клик по кнопке "Сортировать"')
+    def find_and_click_sorting(self):
+        return self.page.get_by_label("", exact=True).select_option("price,ASC")
+
+    @allure.step('Поиск и клик по кнопке "Сбросить фильтры"')
+    def find_and_click_reset_sorting(self):
+        return self.page.get_by_role("button", name="Сбросить фильтры").click()
+
+    @allure.step('Поиск минимальной цены книги')
+    def find_min_price_book(self):
+        return self.page.get_by_text("Цена: 410 Руб")
+
+    @allure.step('Поиск книги без использования фильтров')
+    def find_stock_book(self):
+        return self.page.get_by_text("Темная башня")

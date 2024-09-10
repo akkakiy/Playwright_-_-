@@ -53,3 +53,12 @@ class TestSearchCatalog:
         order = catalog_page.find_text_order()
         book = catalog_page.find_name_book()
         expect(order).to_be_visible() and expect(book).to_be_visible()
+
+    @allure.title('Проверка сортировки книг по цене')
+    def test_sorting(self, catalog_page, browser_context):
+        catalog_page.find_and_click_catalog()
+        catalog_page.find_and_click_sorting()
+        expect(catalog_page.find_min_price_book()).to_be_visible()
+        catalog_page.find_and_click_reset_sorting()
+        expect(catalog_page.find_stock_book()).to_be_visible()
+

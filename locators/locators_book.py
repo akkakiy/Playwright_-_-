@@ -8,12 +8,9 @@ class BookLocators:
     NAME_BOOK_LAVKRAFT = ('Дагон')
     PRICE_BOOK = ('870 руб.')
     ADD_TO_BASKET = ('Добавить в корзину')
-    # BASKET =
     CREATE_ORDER = ('Оформить заказ')
     AUTHOR_LIST = ("ПисателиСтивен КингГерман ГессеГовард ЛавкрафтАртуро Перес-РевертеСтендальАртур ")
-
     BOOK_ROOM = ('О КнигиРум')
-
     DELIVERY = ('Партнерам по доставке')
     SELERS = ('Партнерам-селерам')
     HELP = ('Помощь')

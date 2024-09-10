@@ -61,4 +61,3 @@ class TestSearchCatalog:
         expect(catalog_page.find_min_price_book()).to_be_visible()
         catalog_page.find_and_click_reset_sorting()
         expect(catalog_page.find_stock_book()).to_be_visible()
-
